@@ -10,8 +10,10 @@ var mobileNav = document.querySelector(".mobile-nav");
 // console.dir(backdrop);
 for (var i = 0; i < selectPlanButton.length; i++) {
   selectPlanButton[i].addEventListener("click", function () {
-    modal.style.display = "block";
-    backdrop.style.display = "block";
+    // modal.style.display = "block";
+    // backdrop.style.display = "block";
+    modal.classList.add("open");
+    backdrop.classList.add("open");
   });
 }
 
@@ -21,12 +23,17 @@ backdrop.addEventListener("click", function () {
   closeModal();
 });
 
-modalNoButton.addEventListener("cllick", сloseModal);
+if (modalNoButton) {
+  modalNoButton.addEventListener("click", closeModal);
+}
 
 function сloseModal() {
   // backdrop.style.display = "none";
   // modal.style.display = "none";
-  modal.classList.remove("open");
+  if (modal) {
+    modal.classList.remove("open");
+  }
+
   backdrop.classList.remove("open");
 }
 
